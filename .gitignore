@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 /.idea/*
+/.idea
+/.sublime*
+/.atom*
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
