@@ -1,0 +1,6 @@
+%button.btn.btn-primary{data: {target: '.modal-info', toggle: 'modal'}}
+  Info
+.modal.fade.modal-info{aria: {hidden: true, labelledby: 'Info', role: 'dialog', tabindex: '-1'} }
+  .modal-dialog.modal-lg
+    .modal-content
+      = yield :modal

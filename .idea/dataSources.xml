@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="462088755">
+    <data-source source="LOCAL" name="Rails flagrun.net: development" uuid="3f234aa3-4655-4f6f-8a54-699aef752bbd">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:frn_dev</jdbc-url>
+      <user-name>flagrun</user-name>
+      <user-password>dfdedfd8dfdfdfd9dfdedfc4dfc5df9b</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine31/jdbc-drivers/postgresql-9.0-801.jdbc4.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails flagrun.net: test" uuid="1332c5e6-e659-4025-9329-ba7d748f9d30">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:frn_test</jdbc-url>
+      <user-name>flagrun</user-name>
+      <user-password>dfdedfd8dfdfdfd9dfdedfc4dfc5df9b</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine31/jdbc-drivers/postgresql-9.0-801.jdbc4.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails flagrun.net: production" uuid="8af8c483-6e1c-45e2-a06b-9f4c25c2ddd7">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:frn</jdbc-url>
+      <user-name>flagrun</user-name>
+      <user-password>dfdedfd8dfdfdfd9dfdedfc4dfc5df9b</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine31/jdbc-drivers/postgresql-9.0-801.jdbc4.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails flagrun.net: cucumber" uuid="ecf5ecc0-37bb-4c0f-8085-b0da548194bd">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:frn_test</jdbc-url>
+      <user-name>flagrun</user-name>
+      <user-password>dfdedfd8dfdfdfd9dfdedfc4dfc5df9b</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine31/jdbc-drivers/postgresql-9.0-801.jdbc4.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

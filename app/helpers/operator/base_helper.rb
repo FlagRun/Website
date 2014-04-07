@@ -1,0 +1,2 @@
+module Operator::BaseHelper
+end

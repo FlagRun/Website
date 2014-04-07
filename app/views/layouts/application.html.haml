@@ -1,0 +1,35 @@
+!!! 5
+%html
+  %head
+    %title Flagrun Networks
+    %meta{:charset => 'utf-8'}
+    = favicon_link_tag  'favicon.ico'
+    = stylesheet_link_tag 'application'
+    = csrf_meta_tag
+  %body
+    =render 'layouts/nav'
+    .logo
+      =image_tag  'default/flagrun.png'
+
+    -if content_for :modal
+      =render 'layouts/modal'
+
+    -if content_for? :sidebar
+      .container-fluid
+        .content
+          .row
+            .col-md-2
+              =yield :sidebar
+            .col-md-10
+              =render 'layouts/alert', :locals => {flash: flash}
+              =yield
+    -else
+      .container
+        .content
+          -#=render 'menu' rescue ''
+          =render 'layouts/alert', :locals => {flash: flash}
+          =yield
+    %br
+    %footer.footer
+      =render 'layouts/footer'
+  = javascript_include_tag :application

@@ -1,0 +1,2 @@
+module System::BaseHelper
+end

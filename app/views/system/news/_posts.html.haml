@@ -1,0 +1,15 @@
+%h3.topic
+  =link_to post.title.capitalize, system_news_path(post)
+%span.news-info
+  &laquo;
+  %a{:href => "/s/news/archive/#{post.created_at.strftime('%Y-%m-%d')}"} #{post.created_at.to_s :long}
+  &laquo;&raquo;
+  #{image_tag post.user.gravatar_url size: 16} #{link_to raw(post.user.tagged), user_path(post.user) }
+  -#&laquo;&raquo;
+  -#=link_to "#{post.comments.count} Comments", system_news_path(post)
+  -#&laquo;&raquo;
+  -##{post.tag_list}
+  &raquo;
+.news-story
+  =preserve kramdown(post.body)
+  %br

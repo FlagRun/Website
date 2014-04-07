@@ -1,0 +1,13 @@
+.well
+  =simple_form_for @user do |f|
+    %span.pull-right= link_to 'Change Password', user_change_password_path(@user)
+    .form-group
+      -if user_signed_in? && (current_user.admin? || current_user.netadmin?)
+        =f.input :username, disabled: true,label_html: {class: 'control-label'},input_html: {class: 'form-control'}
+      =f.input :email, label_html: {class: 'control-label'},input_html: {class: 'form-control'}
+
+    .form-group
+      =f.input :title, label_html: {class: 'control-label'},input_html: {class: 'form-control'}
+
+    .form-group
+      =f.button :submit, 'Update!', class: 'btn btn-info'

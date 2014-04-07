@@ -1,0 +1,18 @@
+%p#notice= notice
+-if policy(@system_news).update?
+  .admin.pull-right
+    = link_to 'Edit', edit_system_news_path(@system_news), class:'label label-success'
+
+.news
+  .news-title
+    %h3=@system_news.title
+  .well
+    =preserve kramdown(@system_news.body)
+  .author.pull-right
+    Posted
+    = link_to @system_news.created_at.to_s(:long), 'nil'
+    by
+    = link_to @system_news.user.username.capitalize, user_path(@system_news.user)
+
+.comments
+  %h5 Comments

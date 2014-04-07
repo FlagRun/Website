@@ -1,0 +1,51 @@
+<div class="right controls"><%= link_to "New Forum Category", new_category_path if can? :create, Category %></div>
+
+<% @categories.each do |category| %>
+    <% if can?(:read, category) %>
+    <div class="module">
+    <div class="module_header">
+      <%= category.title %>
+      <span class="controls right smaller">
+        <%= link_to "New Forum", new_forum_path if can? :create, Forum %>
+        <%= link_to "Edit Category", edit_category_path(category) if can? :manage, category %>
+        <%= link_to "Delete Category", category_path(category), :confirm => "Are you sure you want to delete this category?", :method => :delete if can? :manage, category %>
+       </span>
+    </div>
+    <% if category.forums.size > 0 %>
+    <div>
+      <table>
+        <tr class="smaller">
+          <th colspan="2" align="left">Forum</th>
+          <th>Topics</th>
+          <th>Posts</th>
+          <th class="last_post" align="left">Last Post</th>
+        </tr>
+        <% category.forums.each do |forum| %>
+            <% if can?(:read, forum) %>
+        <tr>
+          <td class="icon"><%= image_tag 'default/star-25.png' %></td>
+          <td class="description">
+            <%= link_to forum.title, forum_path(forum) %><br />
+            <span class="smaller"><%= forum.description %></span><br />
+          </td>
+          <td class="counts smaller"><%= forum.topics.size %></td>
+          <td class="counts smaller"><%= forum.posts.size - forum.topics.size %></td>
+          <td class="last_post smaller">
+            <% if forum.posts.size > 0 %>
+              <%= forum.posts.last.created_at %><br />
+              <%= link_to forum.posts.last.user.tagged, user_path(forum.posts.last.user) %>
+            <% else %>
+              No Topics / Posts
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+        <% end %>
+      </table>
+    </div>
+    <% else %>
+      <div class="module_body">There are currently no forums.</div>
+    <% end %>
+  </div>
+  <% end %>
+<% end %>

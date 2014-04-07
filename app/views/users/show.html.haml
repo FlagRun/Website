@@ -1,0 +1,31 @@
+.user-profile
+  .user-header
+    %h1
+      = image_tag @user.gravatar_url, size: '40x40'
+      =@user.tagged
+    .small-header
+      [ #{content_tag(:span, @user.status.upcase, class: 'status')} ]
+      #{content_tag(:span, @user.title, class: 'title')}
+  .row
+    .col-md-2
+      .panel.panel-warning
+        .user-nav
+          .btn-group-vertical
+            =link_to 'Home','', class: 'btn btn-default'
+            =link_to 'Blog','', class: 'btn btn-default disabled'
+            =link_to 'Media','', class: 'btn btn-default disabled'
+            =link_to 'Groups','', class: 'btn btn-default disabled'
+            =link_to 'Message','', class: 'btn btn-default disabled'
+      .panel.panel-success
+        .user-info
+
+          %h4 Joined:
+          %p= @user.created_at.strftime('%B %d, %Y')
+          %h4 Last login:
+          %p #{time_ago_in_words(@user.current_sign_in_at)} ago
+          %h4 Level
+          %p #{@user.level} (#{@user.percent_level_complete} %)
+    .col-md-10
+      .user-page
+        .panel.panel-info
+          Profile coming soon

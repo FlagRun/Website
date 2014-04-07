@@ -1,0 +1,2 @@
+module Forum::BaseHelper
+end

@@ -1,0 +1,7 @@
+%ul.breadcrumb
+  %li=link_to 'Home', forum_forums_path
+  %li=link_to @topic.forum.title, forum_forum_path(@topic.forum)
+  -if @topic.forum.oline != 0 && !current_user.netadmin?
+    %li You are not authorized
+  -else
+    %li=link_to @topic.title, forum_topic_path(@topic.forum, @topic), class: 'active'

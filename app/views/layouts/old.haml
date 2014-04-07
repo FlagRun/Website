@@ -1,0 +1,72 @@
+!!! 5
+%html
+  %head
+    %title Flagrun Networks
+    %meta{:charset => "utf-8"}
+    = favicon_link_tag "favicon.ico"
+    = stylesheet_link_tag    "application"
+    = csrf_meta_tag
+  %body
+    #layout
+      #auth
+        - if current_user
+          %span{id: "auth-avatar"}
+            = image_tag raw(current_user.gravatar_url size: 16   )
+          %a{:href => "/user/#{current_user.username}/"}
+            !=current_user.tagged rescue current_user.username
+          |
+          %a{:href => "/account/messages/"} 0 Messages
+          |
+          %a{:href => "/account/profile/"} Profile
+          |
+          %a{:href => "/account/settings/"} Settings
+          |
+          %a{:href => "/auth/logout"} Logout
+        - else
+          = form_tag main_app.new_user_session_path do
+            = link_to "Create Account", main_app.new_user_registration_path
+            |
+            = link_to "Forgot Password", main_app.new_user_password_path
+            = text_field_tag 'user[email]', nil, :placeholder => 'E-Mail Address'
+            = password_field_tag 'user[password]', nil, :placeholder => 'Password'
+            = check_box_tag 'user[remember_me]'
+            = label_tag 'user[remember_me]', 'Remember me'
+            = submit_tag "Login"
+      #logo
+        =link_to image_tag("default/flagrun.png"), root_url
+      #navlist
+        %ul
+          %li= link_to "Home", main_app.root_path
+          %li= link_to "Users", main_app.user_root_path
+          %li= link_to "Groups", main_app.group_root_path
+          %li= link_to "Articles", main_app.article_index_path
+          %li= link_to "Forums", forem.root_path
+          %li= link_to "Admin", "#", :style => "color: #ff9900" if can? :access, :admin_menu
+      #content
+        -if flash[:alert]
+          #flash
+            #error=  flash[:alert]
+        -elsif flash[:notice]
+          #flash
+            #notice= flash[:notice]
+        -if content_for? :info
+          #info
+            = yield :info
+          #article
+            = yield
+        -else
+          #window
+            = yield
+      #footer
+        #copyright 1998 - 2011 &copy; FlagRun Networks
+        #service
+          = link_to "About", main_app.service_about_path
+          |
+          = link_to "Abuse", main_app.service_abuse_path
+          |
+          = link_to "Policy", main_app.service_policy_path
+          |
+          = link_to "Contact Us", main_app.service_contact_path
+          |
+          = link_to "Credits", main_app.service_credits_path
+  = javascript_include_tag "application"

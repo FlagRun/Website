@@ -1,0 +1,35 @@
+//body { padding-top: 60px; }
+a {
+  color: #ffc901;
+  &:hover {color: #fff8ba; }
+  &:visited {
+    color: #ffc901;
+    &:hover {color: #fff8ba; }
+  }
+}
+.label {
+  color: #fff !important;
+  a{
+    color: #fff !importantf;
+    &:hover {color: #CCC !important; }
+    &:visited {
+      color: #FFF !important;
+      &:hover {color: #FFF !important; }
+    }
+  }
+}
+
+pre {
+  margin: 0px;
+  background-color: #111;
+  color: #F8F8F8;
+}
+
+body {color: #FFF;}
+
+input, select, textarea{
+    color: #000;
+}
+.btn {
+  input { color: #FFF !important; }
+}

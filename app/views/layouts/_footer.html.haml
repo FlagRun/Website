@@ -1,0 +1,17 @@
+%div{class: 'container-fluid footer'}
+  %span.pull-right
+    -#=link_to 'About', info_path(action: 'about')
+    -#|
+    -#=link_to 'Credits', info_path(action: 'credits')
+    -#|
+    -#=link_to 'Staff', info_path(action: 'credits')
+    -#|
+    -#=link_to 'Abuse', info_path(action: 'abuse')
+    -#|
+    -#=link_to 'Terms of Service', info_path(action: 'tos')
+  %br
+  %span.pull-right
+    FlagRun Networks &copy; 2012
+    = image_tag 'rails-badge.png'
+    = image_tag 'pg-badge.png'
+    = image_tag 'gentoo-badge.png'

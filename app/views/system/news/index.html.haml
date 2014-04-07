@@ -1,0 +1,7 @@
+-#%h1.title News
+- unless @system_news.empty?
+  = render :partial => "posts", :as => :post, :collection => @system_news
+- else
+  %span No News!
+-#= will_paginate @news, {page_links: false, class: "news_pagination"}
+= paginate @system_news
