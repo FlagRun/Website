@@ -31,13 +31,18 @@ class Forum::PostPolicy < ApplicationPolicy
 
   end
 
-  def create?; true end
+  def create?
+    return false if user.banned?
+    true
+  end
   def update?
     return true if user && user.admin? || user.netadmin?
+    return false if user.banned?
     true if user.id == record.user_id
   end
   def destroy?
     return true if user && user.admin? || user.netadmin?
+    return false if user.banned?
     true if user.id == record.user_id
   end
 end

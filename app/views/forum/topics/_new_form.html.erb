@@ -11,7 +11,7 @@
           <%= f.label :title %><br />
           <small>(Required)</small>
         </span>
-        <span class="input indent smaller"><%= f.text_field :title, :size => 102 %></span>
+        <span class="input indent smaller"><%= f.text_field :title, :size => 102, maxlength: 250 %></span>
         <div class="clear"></div>
       </div>
       <% unless @topic.id %>

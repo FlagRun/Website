@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/liothen/paranoia.git
+  revision: 0d5a2ee986d9a7c308156cc436889c13321ba161
+  branch: rails4
+  specs:
+    paranoia (2.0.2)
+      activerecord (~> 4.0)
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 6b685618cb011389e7a4b0430f59a88fa1e14027
   branch: bootstrap-3
@@ -6,14 +14,6 @@ GIT
     simple_form (3.0.1)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
-
-GIT
-  remote: git://github.com/radar/paranoia.git
-  revision: e2ef96045bdfd3839d31ad3d6e3b7fd0cf5aed67
-  branch: rails4
-  specs:
-    paranoia (2.0.2)
-      activerecord (~> 4.0)
 
 GIT
   remote: git://github.com/rails/rails.git

@@ -46,7 +46,7 @@ table .post_author .name a { margin-left:-5px; }
 table .post_author .info { display:block; margin:5px 0; }
 table .post_author .info .status { font-weight: bold;}
 table .post_author .info .title {color: #f05800}
-table .post_body { width:80%; padding:10px 10px 30px 10px; border-bottom:0px;}
+table .post_body { width:80%; padding:10px 10px 30px 10px; border-bottom:0px; max-width: 910px;}
 table .post_body img { @include img-responsive();}
 table .post_header { height:5px; }
 

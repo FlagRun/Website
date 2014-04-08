@@ -14,6 +14,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
+    return false if user.banned?
     return true if user.admin? || user.netadmin?
     true if user.id === record.id
   end

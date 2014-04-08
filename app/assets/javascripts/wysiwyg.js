@@ -679,6 +679,7 @@ Wysiwym.Markdown = function(textarea) {
         new Wysiwym.Button('Bold',   Wysiwym.span,  {prefix:'**', suffix:'**', text:'strong text'}),
         new Wysiwym.Button('Italic', Wysiwym.span,  {prefix:'_',  suffix:'_',  text:'italic text'}),
         new Wysiwym.Button('Link',   Wysiwym.span,  {prefix:'[',  suffix:'](http://example.com)', text:'link text'}),
+        new Wysiwym.Button('IMG',    Wysiwym.span,  {prefix:'![img](',  suffix:')', text:'link text'}),
         new Wysiwym.Button('Bullet List', Wysiwym.list, {prefix:'* ', wrap:true}),
         new Wysiwym.Button('Number List', Wysiwym.list, {prefix:'0. ', wrap:true, regex:/^\s*\d+\.\s/}),
         new Wysiwym.Button('Quote',  Wysiwym.list,  {prefix:'> ',   wrap:true}),

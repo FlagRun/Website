@@ -30,16 +30,20 @@ class Forum::TopicPolicy < ApplicationPolicy
   end
 
   def create?
+    return false if user.banned?
     true
   end
 
   def update?
+    return false if user.banned?
     return true if (user.admin? || user.netadmin?)
     true if user.id == record.user_id
   end
 
   def destroy?
-    true if (user.admin? || user.netadmin?)
+    return false if user.banned?
+    return true if (user.admin? || user.netadmin?)
+    true if user.id == record.user_id
   end
 
   def moderate?

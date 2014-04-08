@@ -12,6 +12,9 @@ class Forum::Post < ActiveRecord::Base
   # Pagination
   paginates_per 50
 
+  # Paranoia
+  acts_as_paranoid
+
   # Default Scope
   #default_scope :order => 'created_at ASC'
   default_scope -> { order('created_at ASC') }
@@ -23,6 +26,11 @@ class Forum::Post < ActiveRecord::Base
 
   # Callbacks
   before_save :topic_locked?
+
+  #
+  def to_s
+    'Post'
+  end
 
   # Methods
   def user_authorized?(user)

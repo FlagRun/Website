@@ -84,7 +84,7 @@ class Forum::PostsController < ApplicationController
     else
       if @post.topic.destroy
         flash[:notice] = "Topic was successfully deleted."
-        redirect_to forum_path(@post.forum)
+        redirect_to forum_forum_path(@post.forum)
       end
     end
   end

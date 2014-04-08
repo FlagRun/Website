@@ -11,7 +11,7 @@
           <%= f.label :title %><br/>
           <small>(Required)</small>
         </span>
-          <span class="input indent smaller"><%= f.text_field :title, :size => 100 %></span>
+          <span class="input indent smaller"><%= f.text_field :title, :size => 100, maxlength: 250 %></span>
 
           <div class="clear"></div>
         </div>
@@ -20,15 +20,6 @@
           <%= f.label :position %>
         </span>
           <span class="input indent smaller"><%= f.text_field :position %></span>
-
-          <div class="clear"></div>
-        </div>
-        <div class="fieldset">
-          <span class="label indent smaller"></span>
-        <span class="input indent smaller">
-          <%= f.check_box :state %>
-          <%= f.label :state %>
-        </span>
 
           <div class="clear"></div>
         </div>
@@ -49,6 +40,15 @@
               <span class="input indent smaller">
                 <%= f.select :status, User.statuses%>
               </span>
+
+          <div class="clear"></div>
+        </div>
+        <div class="fieldset">
+          <span class="label indent smaller"></span>
+        <span class="input indent smaller">
+          <%= f.check_box :state %>
+          <%= f.label :state %>
+        </span>
 
           <div class="clear"></div>
         </div>

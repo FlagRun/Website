@@ -7,4 +7,3 @@ jQuery ($) ->
 
   # WySiWyG
   $('.markdown').wysiwym(Wysiwym.Markdown, {})
-#  $('#system_news_body').wysiwym(Wysiwym.Markdown, {})

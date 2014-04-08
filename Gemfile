@@ -57,7 +57,7 @@ gem 'attr_extras'
 gem 'bcrypt'
 gem 'devise'
 gem 'pundit'
-gem 'paranoia', github: 'radar/paranoia', branch: 'rails4'
+gem 'paranoia', github: 'liothen/paranoia', branch: 'rails4'
 
 ## Forum
 

@@ -1,5 +1,6 @@
 class Forum::Topic < ActiveRecord::Base
   extend FriendlyId
+
   # Associations
   has_many :posts, :class_name => 'Forum::Post', :dependent => :destroy
   belongs_to :forum, :class_name => 'Forum::Forum', :counter_cache => true
@@ -18,6 +19,9 @@ class Forum::Topic < ActiveRecord::Base
 
   # Pagination
   paginates_per 50
+
+  # Paranoia
+  acts_as_paranoid
 
   # Validations
   validates :title,   :presence => true

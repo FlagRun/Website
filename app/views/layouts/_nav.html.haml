@@ -27,9 +27,9 @@
         -#    %li= link_to 'test', 'test'
       - if user_signed_in? && current_user
         %ul.nav.navbar-nav.navbar-right
-          %li.nav.navbar-nav
-            %a{href: ''}
-              %span.badge= current_user.mailbox.inbox.count
+          -#%li.nav.navbar-nav
+          -#  %a{href: ''}
+          -#    %span.badge= current_user.mailbox.inbox.count
           %li.dropdown
             %a.drop-down-toggle{data: {toggle: 'dropdown'}}
               =image_tag current_user.gravatar_url, {size: '16x16' }

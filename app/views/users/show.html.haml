@@ -22,7 +22,7 @@
           %h4 Joined:
           %p= @user.created_at.strftime('%B %d, %Y')
           %h4 Last login:
-          %p #{time_ago_in_words(@user.current_sign_in_at)} ago
+          %p #{time_ago_in_words(@user.current_sign_in_at) rescue '0 days'} ago
           %h4 Level
           %p #{@user.level} (#{@user.percent_level_complete} %)
     .col-md-10
