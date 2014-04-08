@@ -43,7 +43,7 @@ class Forum::TopicsController < ApplicationController
     end
 
     if @topic.save
-      flash[:notice] = "Topic was successfully created."
+      flash[:notice] = 'Topic was successfully created.'
       redirect_to forum_topic_url(@forum, @topic)
     else
       render :action => 'new'
@@ -71,7 +71,7 @@ class Forum::TopicsController < ApplicationController
     end
 
     if @topic.update_attributes(permitted_params)
-      flash[:notice] = "Topic was updated successfully."
+      flash[:notice] = 'Topic was updated successfully.'
       redirect_to forum_topic_url(@topic.forum, @topic)
     end
   end
@@ -86,7 +86,7 @@ class Forum::TopicsController < ApplicationController
     end
 
     if @topic.destroy
-      flash[:notice] = "Topic was deleted successfully."
+      flash[:notice] = 'Topic was deleted successfully.'
       redirect_to forum_forum_url(@topic.forum)
     end
   end

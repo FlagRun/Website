@@ -5,18 +5,18 @@
       .module_header
         = category.title
         %span.controls.right.smaller
-          = link_to "New Forum", new_forum_forum_path, class: 'label label-info' if policy(Forum::Forum).new?
-          = link_to "New Category", new_forum_category_path, class: 'label label-info' if policy(Forum::Category).new?
-          = link_to "Edit Category", edit_forum_category_path(category), class: 'label label-info' if policy(Forum::Category).update?
-          = link_to "Delete Category", forum_category_path(category), class: 'label label-danger', data: { confirm: 'Are you sure you want to delete this category?' }, :method => :delete if policy(Forum::Category).destroy?
+          = link_to 'New Forum', new_forum_forum_path, class: 'label label-info' if policy(Forum::Forum).new?
+          = link_to 'New Category', new_forum_category_path, class: 'label label-info' if policy(Forum::Category).new?
+          = link_to 'Edit Category', edit_forum_category_path(category), class: 'label label-info' if policy(Forum::Category).update?
+          = link_to 'Delete Category', forum_category_path(category), class: 'label label-danger', data: { confirm: 'Are you sure you want to delete this category?' }, :method => :delete if policy(Forum::Category).destroy?
       - if category.forums.size > 0
         %div
           %table.table-hover
             %tr.smaller
-              %th{:align => "left", :colspan => "2"} Forum
+              %th{:align => 'left', :colspan => '2'} Forum
               %th Topics
               %th Posts
-              %th.last_post{:align => "left"} Last Post
+              %th.last_post{:align => 'left'} Last Post
             - category.forums.each do |forum|
               - if policy(forum).show?
                 %tr

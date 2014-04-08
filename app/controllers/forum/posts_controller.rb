@@ -78,12 +78,12 @@ class Forum::PostsController < ApplicationController
 
     if @post.topic.posts_count > 1
       if @post.destroy
-        flash[:notice] = "Post was successfully destroyed."
+        flash[:notice] = 'Post was successfully destroyed.'
         redirect_to forum_topic_path(@post.topic.forum,@post.topic)
       end
     else
       if @post.topic.destroy
-        flash[:notice] = "Topic was successfully deleted."
+        flash[:notice] = 'Topic was successfully deleted.'
         redirect_to forum_forum_path(@post.forum)
       end
     end

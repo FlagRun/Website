@@ -17,7 +17,7 @@ class Forum::CategoriesController < ApplicationController
     authorize @category, :create?
 
     if @category.save
-      flash[:notice] = "Category was successfully created."
+      flash[:notice] = 'Category was successfully created.'
       redirect_to forum_forums_url
     else
       render :action => 'new'
@@ -35,7 +35,7 @@ class Forum::CategoriesController < ApplicationController
     authorize @category, :update?
 
     if @category.update_attributes(permitted_params)
-      flash[:notice] = "Category was updated successfully."
+      flash[:notice] = 'Category was updated successfully.'
       redirect_to forum_forums_url
     end
   end
@@ -46,7 +46,7 @@ class Forum::CategoriesController < ApplicationController
     authorize @category, :destroy?
 
     if @category.destroy
-      flash[:notice] = "Category was deleted."
+      flash[:notice] = 'Category was deleted.'
       redirect_to forum_forums_url
     end
   end
