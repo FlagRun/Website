@@ -4,7 +4,7 @@
     <% if @topic.forum.oline != 0 && !current_user.netadmin? %>
         <strong>You are not authorized</strong>
     <% else %>
-        <%= @topic.title %>
+        <span class="title"><%= @topic.title %></span>
     <% end %>
     <span class="right controls">
         <%= link_to 'Edit', edit_forum_topic_path(@forum,@topic), class: 'label label-warning' if policy(@topic).edit? && !@topic.locked %>
@@ -21,7 +21,7 @@
           <span class="name"><%= link_to post.user.tagged, user_path(post.user) %></span>
           <span class="avatar"><%= image_tag post.user.gravatar_url %></span>
           <span class="info smaller">
-            <p class="status"><%= post.user.status.capitalize %></p>
+            <p>[ <span class="status"><%= post.user.status.capitalize %></span> ]</p>
             <p class="title"><%= post.user.title %></p>
             Level: <%= post.user.level %> (<%= post.user.percent_level_complete %>%)<br />
             Posts: <%= post.user.posts.size %><br />

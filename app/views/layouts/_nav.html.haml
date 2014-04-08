@@ -31,7 +31,7 @@
           -#  %a{href: ''}
           -#    %span.badge= current_user.mailbox.inbox.count
           %li.dropdown
-            %a.drop-down-toggle{data: {toggle: 'dropdown'}}
+            %a.dropdown-toggle{data: {toggle: 'dropdown'}, href: '#'}
               =image_tag current_user.gravatar_url, {size: '16x16' }
               = current_user.username
               %b.caret
