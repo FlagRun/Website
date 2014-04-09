@@ -11,10 +11,13 @@ require 'mina/rbenv'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain,     'flagrun.net'
-set :deploy_to,  '/var/www/dev.flagrun.net'
-set :repository, 'git://github.com/flagworx/flagrun.net'
-set :branch,     'master'
+set :domain,        'flagrun.net'
+set :deploy_to,     '/var/www/flagrun.net'
+set :repository,    'git@github.com:flagworx/flagrun.net.git'
+set :branch,        'master'
+set :releases_path, 'releases'
+set :shared_path,   'shared'
+set :lock_fole,     'deploy.locl'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
