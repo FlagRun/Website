@@ -4,8 +4,6 @@ require 'mina/git'
 require 'mina/rbenv'
 
 # Load .ENV
-require 'dotenv'
-Dotenv.load
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -13,17 +11,17 @@ Dotenv.load
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain,     ENV['SITE_DOMAIN']
-set :deploy_to,  ENV['SITE_PATH']
-set :repository, ENV['GIT_REPO']
-set :branch,     ENV['GIT_BRANCH']
+set :domain,     'flagrun.net'
+set :deploy_to,  '/var/www/dev.flagrun.net'
+set :repository, 'git://github.com/flagworx/flagrun.net'
+set :branch,     'master'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml','config/secrets.yml', 'log', 'public/media']
+set :shared_paths, ['config/database.yml','config/secrets.yml', 'log', 'public/media', 'public/uploads']
 
 # Optional settings:
-set :user,       ENV['SITE_USER']    # Username in the server to SSH to.
+set :user,       'liothen'    # Username in the server to SSH to.
 #   set :port, '30000'     # SSH port number.
 
 # This task is the environment that is loaded for most commands, such as
@@ -52,6 +50,9 @@ task :setup => :environment do
 
   queue! %[mkdir -p "#{deploy_to}/shared/public/media"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/public/media"]
+
+  queue! %[mkdir -p "#{deploy_to}/shared/public/uploads"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/public/uploads"]
 
   queue! %[touch "#{deploy_to}/shared/config/database.yml"]
   queue! %[touch "#{deploy_to}/shared/config/secrets.yml"]
