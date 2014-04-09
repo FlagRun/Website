@@ -5,11 +5,11 @@ class Forum::CategoryPolicy < ApplicationPolicy
       if !user.nil? && user.netadmin?
         scope.all
       elsif !user.nil? && user.admin?
-        scope.where('oline >= ?', User.olines[:admin])
+        scope.where('oline <= ?', User.olines[:admin])
       elsif !user.nil? && user.op?
-        scope.where('oline >= ?', User.olines[:op])
+        scope.where('oline <= ?', User.olines[:op])
       elsif !user.nil? && user.helper?
-        scope.where('oline >= ?', User.olines[:helper])
+        scope.where('oline <= ?', User.olines[:helper])
       else
         scope.where(oline: 0)
       end
