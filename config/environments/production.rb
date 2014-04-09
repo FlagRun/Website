@@ -89,4 +89,5 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.default_url_options = { host: 'flagrun.net' }
+  ActionMailer::Base.smtp_settings[:openssl_verify_mode] = false
 end
