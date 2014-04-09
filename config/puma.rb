@@ -9,9 +9,9 @@ preload_app!
 
 # Daemonize
 daemonize true
-pidfile     '/var/www/flagrun.net/run/puma/puma.pid'
-state_path  '/var/www/flagrun.net/run/puma/puma.state'
-bind        'unix:///var/www/flagrun.net/run/puma.sock'
+pidfile     '/var/www/flagrun.net/current/tmp/puma.pid'
+state_path  '/var/www/flagrun.net/current/tmp/puma.state'
+bind        'unix:///var/www/flagrun.net/current/tmp/puma.sock'
 
 on_worker_boot do
   ActiveSupport.on_load(:active_record) do
