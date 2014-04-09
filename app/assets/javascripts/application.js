@@ -12,11 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.purr
+//= require jquery.cssemoticons
 //= require opal_ujs
 //= require bootstrap
 //= require tipsy
 //= require turbolinks
 //= require wysiwyg
+//= require best_in_place
 //= require_tree .
 
 
