@@ -7,3 +7,5 @@ jQuery ($) ->
 
   # WySiWyG
   $('.markdown').wysiwym(Wysiwym.Markdown, {})
+
+  $('.post_body').emoticonize( { exclude: 'pre, code, .no-emoticons' } )
