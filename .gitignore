@@ -22,3 +22,8 @@
 # Ignore Configuration
 /config/database.yml
 /config/secrets.yml
+/config/deploy.rb
+/config/nginx.conf
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

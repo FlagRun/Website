@@ -8,6 +8,12 @@
     <%= f.input :email, required: true, autofocus: true, label_html: {class: 'control-label'},input_html: {class: 'form-control'} %>
   </div>
   <br />
+  <div class="forum-inputs">
+    <%= label_tag 'Captcha' %>
+    <p><%= captcha_tag %></p>
+    <p><%= text_field_tag :captcha %></p>
+  </div>
+  <br />
   <div class="form-actions">
     <%= f.button :submit, "Resend confirmation instructions", class: 'btn btn-info' %>
   </div>

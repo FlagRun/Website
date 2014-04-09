@@ -51,6 +51,16 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
+  # Add the unit of work id to each request
+  config.middleware.insert(0, Lumberjack::Rack::UnitOfWork)
+
+  # Change the logger to use Lumberjack
+  log_file_path = Rails.root + "log" + "#{Rails.env}.log"
+  config.logger = Lumberjack::Logger.new(log_file_path,
+                                         level: :warn,
+                                         max_size: 50.megabytes )
+
+
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 

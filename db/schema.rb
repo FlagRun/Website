@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(version: 20140407061639) do
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
-  create_table "comments", force: true do |t|
-    t.integer  "owner_id",         null: false
-    t.integer  "commentable_id",   null: false
-    t.string   "commentable_type", null: false
-    t.text     "body",             null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "conversations", force: true do |t|
     t.string   "subject",    default: ""
     t.datetime "created_at",              null: false
@@ -157,17 +148,6 @@ ActiveRecord::Schema.define(version: 20140407061639) do
 
   add_index "receipts", ["notification_id"], name: "index_receipts_on_notification_id", using: :btree
 
-  create_table "roles", force: true do |t|
-    t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
-
   create_table "system_news", force: true do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -221,7 +201,7 @@ ActiveRecord::Schema.define(version: 20140407061639) do
     t.datetime "updated_at"
     t.integer  "topics_count",           default: 0
     t.integer  "posts_count",            default: 0
-    t.integer  "status",                 default: 2
+    t.integer  "status",                 default: 1
     t.integer  "group_id",               default: 0
     t.datetime "deleted_at"
     t.integer  "oline",                  default: 0
@@ -233,17 +213,11 @@ ActiveRecord::Schema.define(version: 20140407061639) do
   add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["group_id"], name: "index_users_on_group_id", using: :btree
+  add_index "users", ["oline"], name: "index_users_on_oline", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["status"], name: "index_users_on_status", using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
-
-  create_table "users_roles", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-  end
-
-  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
   add_foreign_key "notifications", "conversations", name: "notifications_on_conversation_id"
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  captcha_route
   # Hacker Blank/Funny page
   get '/proxyheader.php', to: 'dev/hacker#blank'
   get '/dbadmin/', to: 'dev/hacker#blank'

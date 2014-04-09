@@ -56,8 +56,12 @@ gem 'attr_extras'
 ## Security
 gem 'bcrypt'
 gem 'devise'
+gem 'devise_security_extension'
+gem 'easy_captcha'
 gem 'pundit'
 gem 'paranoia', github: 'liothen/paranoia', branch: 'rails4'
+gem 'lumberjack'
+gem 'rails_config'
 
 ## Forum
 
