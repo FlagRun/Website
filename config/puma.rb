@@ -1,6 +1,6 @@
 #!/usr/bin/env puma
 directory   '/var/www/flagrun.net/current'
-enviroment  'production'
+environment  'production'
 
 
 threads 8,32
