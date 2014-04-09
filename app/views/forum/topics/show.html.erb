@@ -1,7 +1,7 @@
 <%=render 'breadcrumb'%>
 <div class="module">
   <div class="module_header">
-    <% if @topic.forum.oline != 0 && !current_user.netadmin? %>
+    <% if @topic.forum.oline != 0 && !(@topic.forum.oline <= User.olines[current_user.oline]) && !current_user.netadmin? %>
         <strong>You are not authorized</strong>
     <% else %>
         <span class="title"><%= @topic.title %></span>
@@ -47,7 +47,7 @@
         <td class="post_body">
           <% if post.deleted_at %>
             <strong>Removed on <%=post.deleted_at.strftime('%B %d, %Y @ %I:%M %P') %> </strong>
-          <% elsif @topic.forum.oline != 0 && !current_user.netadmin? %>
+          <% elsif @topic.forum.oline != 0 && !(@topic.forum.oline <= User.olines[current_user.oline]) && !current_user.netadmin? %>
             <strong> You are not Authorized to view this!</strong>
           <% else %>
             <%=preserve kramdown(post.body) rescue post.body %>
