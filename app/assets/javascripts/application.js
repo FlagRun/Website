@@ -17,7 +17,6 @@
 //= require opal_ujs
 //= require bootstrap
 //= require tipsy
-//= require turbolinks
 //= require wysiwyg
 //= require_tree .
 
