@@ -45,11 +45,6 @@ class Forum::PostsController < ApplicationController
     @forum = @post.forum
     @topic = @post.topic
     authorize @post, :edit?
-
-    if @post.forum.oline != 0 && !current_user.netadmin?
-      raise Pundit::NotAuthorizedError.new('Authorization missing or Record not found')
-    end
-
   end
   
   def update
@@ -58,9 +53,6 @@ class Forum::PostsController < ApplicationController
     @topic = @post.topic
     authorize @post, :update?
 
-    if @post.forum.oline != 0 && !current_user.netadmin?
-      raise Pundit::NotAuthorizedError.new('Authorization missing or Record not found')
-    end
 
     if @post.update_attributes(permitted_params)
       flash[:notice] = 'Post was successfully updated.'
@@ -71,10 +63,6 @@ class Forum::PostsController < ApplicationController
   def destroy
     @post = Forum::Post.find(params[:id])
     authorize @post, :destroy?
-
-    if @post.forum.oline != 0 && !current_user.netadmin?
-      raise Pundit::NotAuthorizedError.new('Authorization missing or Record not found')
-    end
 
     if @post.topic.posts_count > 1
       if @post.destroy
@@ -92,7 +80,7 @@ class Forum::PostsController < ApplicationController
   private
 
     def permitted_params
-      params.require(:forum_post).permit(:body)
+      params.require(:forum_post).permit(:body, :deleted_at)
     end
 
 end

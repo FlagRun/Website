@@ -43,10 +43,10 @@ class UsersController < ApplicationController
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    if user_signed_in? && (current_user.netadmin? || current_user.admin?)
-      params.require(:user).permit(:email, :username, :status, :password, :password_confirmation)
+    if current_user.netadmin? || current_user.admin?
+      params.require(:user).permit(:email, :username, :status, :password, :password_confirmation, :title)
     else
-      params.require(:user).permit(:email, :status, :password, :password_confirmation, :title)
+      params.require(:user).permit(:email, :password, :password_confirmation, :title)
     end
   end
 

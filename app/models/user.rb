@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   acts_as_messageable
   acts_as_tagger
 
+  # Validators
+  validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ }
+
   # Status
   enum status: { banned: 0, member: 1, senior: 2, hidden: 3, contrib: 50, staff: 100 }
 

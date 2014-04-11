@@ -81,10 +81,6 @@ class Forum::TopicsController < ApplicationController
     authorize @topic.forum, :show?
     authorize @topic, :destroy?
 
-    if @forum.oline != 0 && !current_user.netadmin?
-      raise Pundit::NotAuthorizedError.new('Authorization missing or Record not found')
-    end
-
     if @topic.destroy
       flash[:notice] = 'Topic was deleted successfully.'
       redirect_to forum_forum_url(@topic.forum)
@@ -102,9 +98,9 @@ class Forum::TopicsController < ApplicationController
 
     def permitted_params
       if user_signed_in? && (current_user.helper? || current_user.op? || current_user.admin? || current_user.netadmin?)
-        params.require(:forum_topic).permit(:title, :body, :sticky, :locked, :forum_id)
+        params.require(:forum_topic).permit(:title, :body, :sticky, :locked, :forum_id, :deleted_at)
       else
-        params.require(:forum_topic).permit(:title, :body, :sticky, :locked)
+        params.require(:forum_topic).permit(:title, :body, :sticky, :locked, :deleted_at)
       end
     end
 

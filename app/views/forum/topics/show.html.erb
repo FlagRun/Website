@@ -8,7 +8,8 @@
     <% end %>
     <span class="right controls">
         <%= link_to 'Edit', edit_forum_topic_path(@forum,@topic), class: 'label label-warning' if policy(@topic).edit? && !@topic.locked %>
-        <%= link_to 'Delete', forum_topic_path(@forum,@topic),class: 'label label-danger', data: { confirm: 'Are you sure?' }, :method => :delete if policy(@topic).destroy? %>
+        <%= link_to 'Delete', forum_topic_path(@forum,@topic),class: 'label label-danger', data: { confirm: 'Are you sure?' }, :method => :delete if (policy(@topic).destroy? && @topic.deleted_at == nil) %>
+        <%= link_to 'Restore', forum_topic_path(@forum,@topic, forum_topic: {deleted_at: nil}), :method => :put, :confirm => "Are you sure?", class: 'label label-info' if @topic.deleted_at %>
         <%= link_to @topic.sticky ? 'Unstick' : 'Sticky', {module: 'forum', controller: 'topics', action: 'update', forum_topic: {sticky: @topic.sticky ? "false" : "true" }}, :method => :put, class: 'label label-info' if policy(@topic).moderate? %>
         <%= link_to @topic.locked ? 'Unlock' : 'Lock', {module: 'forum', controller: 'topics', action: 'update', forum_topic: {locked: @topic.locked ? "false" : "true" }}, :method => :put, class: 'label label-info' if policy(@topic).moderate? %>
     </span>
@@ -38,7 +39,9 @@
                 <%= link_to "Reply", new_forum_post_path(@forum,@topic), class: 'label label-info'%>
                 <%= link_to "Quote", new_forum_post_path(@forum,@topic, :quote => post), class: 'label label-info' %>
                 <%= link_to "Edit", edit_forum_post_path(@forum,@topic,post), class: 'label label-warning' if policy(post).edit? && !@topic.locked %>
-                <%= link_to "Delete", forum_post_path(@forum,@topic,post), class: 'label label-danger', data: { confirm: 'Are you sure?' }, :method => :delete if policy(post).destroy? %>
+                <%= link_to "Delete", forum_post_path(@forum,@topic,post), class: 'label label-danger', data: { confirm: 'Are you sure?' }, :method => :delete if (policy(post).destroy? && post.deleted_at == nil) %>
+                <%= link_to 'Restore', forum_post_path(@forum,@topic, post, forum_post: {deleted_at: nil}), :method => :put, :confirm => "Are you sure?", class: 'label label-info' if post.deleted_at %>
+
             <% end %>
           </span>
         </td>
