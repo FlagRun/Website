@@ -1,0 +1,7 @@
+-if policy(System::News).new? || policy(System::News).update? || policy(System::News).destroy?
+  .operator.pull-right
+    =link_to 'Create News', new_system_news_path, class: 'label label-success'
+    -if defined?(@system_news.id) && policy(System::News).update?
+      =link_to 'Edit', edit_system_news_path(@system_news), class:'label label-warning'
+      -if policy(System::News).destroy?
+        =link_to 'Delete', system_news_path(@system_news), class: 'label label-danger', data: { confirm: 'Are you sure you want to delete this post?' }, :method => :delete

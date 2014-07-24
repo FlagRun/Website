@@ -1,8 +1,4 @@
 %p#notice= notice
--if policy(@system_news).update?
-  .admin.pull-right
-    = link_to 'Edit', edit_system_news_path(@system_news), class:'label label-success'
-
 .news
   .news-title
     %h3=@system_news.title

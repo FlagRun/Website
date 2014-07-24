@@ -82,7 +82,7 @@ table,
 .table {
 
   a {
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   .success,
@@ -104,6 +104,10 @@ table,
   > tfoot > tr > td {
     border: none;
   }
+
+
+    background-color: #000000;
+
 }
 
 .table-bordered > thead > tr > th,
@@ -270,4 +274,8 @@ textarea {
 
 .panel-default > .panel-heading {
   background-color: $panel-footer-bg;
+}
+
+.operator {
+  padding-right: 20px;
 }

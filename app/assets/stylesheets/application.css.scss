@@ -12,9 +12,11 @@
  *
  */
 
-@import "cyborg/variables";
+// @import "cyborg/variables";
+@import "darkly/variables";
 @import "bootstrap";
-@import "cyborg/cyborg";
+@import "darkly/darkly";
+// @import "cyborg/cyborg";
 @import "tipsy";
 @import "auth";
 
@@ -40,4 +42,3 @@
 @import "jquery.cssemoticons";
 @import "wysiwyg";
 @import "layout";
-

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-# gem 'rails', '4.1.0.rc2'
-gem 'rails', github: 'rails/rails', branch: '4-1-stable'
+gem 'rails', '4.1.4'
+# gem 'rails', github: 'rails/rails', branch: '4-1-stable'
 
 ## Platform Specific
 platform :jruby do

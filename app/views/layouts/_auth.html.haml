@@ -4,7 +4,7 @@
       = link_to(image_tag('default/mail.png'), messages_path) if current_user.unread_messages?
 
     %li.dropdown
-      %a.dropdown-toggle{href: '#', 'data-toggle' => 'dropdown'}
+      %a.dropdown-toggle{href: '#', :'data-toggle' => 'dropdown'}
         = image_tag raw(current_user.gravatar_url size: 16   )
         = current_user.username
         %b.caret

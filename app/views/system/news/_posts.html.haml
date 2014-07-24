@@ -11,5 +11,6 @@
   -##{post.tag_list}
   &raquo;
 .news-story
-  =preserve kramdown(post.body)
+  .well
+    = preserve kramdown(post.body)
   %br

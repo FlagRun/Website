@@ -11,6 +11,8 @@
     .logo
       =image_tag  'default/flagrun.png'
 
+    =render 'operator' rescue ''
+
     -if content_for :modal
       =render 'layouts/modal'
 

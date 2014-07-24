@@ -1,4 +1,5 @@
 -#%h1.title News
+-#= render 'admin', if policy(System::News).new?
 - unless @system_news.empty?
   = render :partial => "posts", :as => :post, :collection => @system_news
 - else
